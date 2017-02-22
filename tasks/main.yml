@@ -1,0 +1,27 @@
+- name: Find all files in the add-key directory
+  find:
+    paths: "{{ sshkey_add_dir }}"
+    pattern: "*.pub"
+  delegate_to: 127.0.0.1
+  register: sshkey_add
+
+- name: Add all valid ssh keys in the add-key directory
+  authorized_key:
+    user: "{{ ssh_keyfile_user }}"
+    state: present
+    key: "{{ lookup('file', item.path) }}"
+  with_items: "{{ sshkey_add.files }}"
+
+- name: Find all files in the remove-key directory
+  find:
+    paths: "{{ sshkey_remove_dir }}"
+    pattern: "*.pub"
+  delegate_to: 127.0.0.1
+  register: sshkey_remove
+
+- name: Remove keys in remove-key directory
+  authorized_key:
+    user: "{{ ssh_keyfile_user }}"
+    state: absent
+    key: "{{ lookup('file', item.path) }}"
+  with_items: "{{ sshkey_remove.files }}"

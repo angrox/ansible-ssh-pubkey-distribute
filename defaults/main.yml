@@ -1,0 +1,3 @@
+sshkey_add_dir: "./ssh-pubkeys/add"
+sshkey_remove_dir: "./ssh-pubkeys/remove"
+ssh_keyfile_user: "root"
