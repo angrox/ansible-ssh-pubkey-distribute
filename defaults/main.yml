@@ -1,3 +1,7 @@
+---
+# ssh keys that must be added
 sshkey_add_dir: "./ssh-pubkeys/add"
+# ssh keys that must be removed
 sshkey_remove_dir: "./ssh-pubkeys/remove"
+# Name of the account that will be able to login.
 ssh_keyfile_user: "root"
