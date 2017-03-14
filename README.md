@@ -1,4 +1,3 @@
-
 MaibornWolff ssh-pubkey-distribute
 =========
 
@@ -40,7 +39,13 @@ Example Playbook
 
 **Usage**
 
-	TBD
+```
+# Base packages and config for all hosts
+# Every hosts receives updated, gets date config and ssh hardening
+- hosts: all
+  roles:
+    - { role:  roles/devops/ssh-pubkey-distribute,  tags: ssh-keys }
+```
 
 Tests
 -----
