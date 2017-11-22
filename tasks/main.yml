@@ -1,7 +1,7 @@
 - name: Find all files in the add-key directory
   find:
     paths: "{{ sshkey_add_dir }}"
-    pattern: "*.pub"
+    pattern: "{{ sshkey_file_regex }}"
   delegate_to: 127.0.0.1
   register: sshkey_add
 

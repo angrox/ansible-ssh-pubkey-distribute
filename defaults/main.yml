@@ -5,3 +5,5 @@ sshkey_add_dir: "./ssh-pubkeys/add"
 sshkey_remove_dir: "./ssh-pubkeys/remove"
 # Name of the account that will be able to login.
 ssh_keyfile_user: "root"
+# Regex pattern to match public key files
+sshkey_file_regex: "*.pub"
